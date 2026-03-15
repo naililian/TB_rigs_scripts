@@ -1,3 +1,22 @@
+/**
+ * LP_exposeAllSubstitutions.js
+ *
+ * @description  Exposes all drawing substitutions of the selected READ node(s) sequentially
+ *               on the timeline, starting from the current frame. Each drawing in the element
+ *               is assigned to a consecutive frame so all substitutions become visible and
+ *               accessible without manual exposure.
+ *
+ * @usage        Select one or more READ (Drawing) nodes in the Node View, place the playhead
+ *               on the desired start frame, then run this script.
+ *
+ * @notes        - Only READ nodes are processed; other node types are silently skipped.
+ *               - The operation is wrapped in a single undo/redo accumulator, so it can be
+ *                 fully undone in one step.
+ *               - Existing exposures after the start frame will be overwritten.
+ *
+ * @author       Lilian Penzo
+ * @version      1.0
+ */
 
 function LP_exposeAllSubstitutions() {
     scene.beginUndoRedoAccum("------- exposeAllSubstitutions --------");
